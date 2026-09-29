@@ -3,6 +3,12 @@
 	"name": "agentic-inbox",
 	"compatibility_date": "2025-11-28",
 	"main": "./workers/app.ts",
+	"routes": [
+		{
+			"pattern": "mail.bloomit.com.ar",
+			"custom_domain": true
+		}
+	],
 	"observability": {
 		"enabled": true
 	},
@@ -13,8 +19,11 @@
 		// Production deploys must also define POLICY_AUD and TEAM_DOMAIN.
 		// TEAM_DOMAIN may be the base Access URL or the full /cdn-cgi/access/certs URL.
 		// The worker now fails closed outside local development if Access is not configured.
-		"DOMAINS": "example.com",
-		"EMAIL_ADDRESSES": []
+		"DOMAINS": "bloomit.com.ar",
+		// Set to "true" to have the AI agent auto-draft a reply for every incoming email (uses Workers AI).
+		"AUTO_DRAFT": "false"
+		// EMAIL_ADDRESSES is set as a secret: wrangler secret put EMAIL_ADDRESSES
+		// (comma-separated, e.g. "hello@example.com,support@example.com")
 	},
 	"send_email": [
 		{

@@ -60,6 +60,8 @@ npm run dev
 ### Configuration
 
 1. Set your domain in `wrangler.jsonc`
+   - Optional: restrict mailboxes to specific addresses with a comma-separated secret: `wrangler secret put EMAIL_ADDRESSES` (e.g. `hello@example.com,support@example.com`), which keeps the addresses out of the repo
+   - Optional: set `AUTO_DRAFT` to `"false"` to stop the agent from auto-drafting a reply for every incoming email (the agent side panel keeps working on demand)
 2. Create an R2 bucket named `agentic-inbox`: `wrangler r2 bucket create agentic-inbox`
 
 ### Deploy
