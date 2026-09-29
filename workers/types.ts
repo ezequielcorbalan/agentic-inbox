@@ -5,4 +5,6 @@
 export interface Env extends Cloudflare.Env {
 	POLICY_AUD: string;
 	TEAM_DOMAIN: string;
+	// Comma-separated list, set as a secret (or a var array in wrangler.jsonc).
+	EMAIL_ADDRESSES?: string | string[];
 }
